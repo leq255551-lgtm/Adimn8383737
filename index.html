@@ -1,95 +1,21 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VDPlay | Get Key</title>
-<style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    background: #090d16;
-    color: white;
-    font-family: Arial, sans-serif;
-  }
-  .card {
-    width: 85%;
-    max-width: 360px;
-    padding: 28px 20px;
-    border: 1px solid #30394c;
-    border-radius: 18px;
-    background: #151c2b;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  }
-  h1 { color: #65a7ff; margin-top: 0; }
-  p { color: #c4ccda; line-height: 1.6; font-size: 15px; }
-  .key-box {
-    margin: 16px 0;
-    padding: 12px;
-    background: #0e1422;
-    border: 1px dashed #3a4a6b;
-    border-radius: 10px;
-    color: #7ef0a8;
-    font-weight: bold;
-    font-size: 18px;
-    word-break: break-all;
-    display: none;
-  }
-  button {
-    width: 100%;
-    padding: 14px;
-    border: 0;
-    border-radius: 9px;
-    background: #2478ee;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  button:active { transform: scale(0.98); }
-  button:disabled { background: #3a4a6b; }
-  .footer { margin-top: 15px; font-size: 12px; color: #6b7a96; }
-</style>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VDPlay Get Key</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#090d16;color:#fff;font-family:Arial}.card{width:88%;max-width:360px;padding:28px 20px;border:1px solid #30394c;border-radius:18px;background:#151c2b;text-align:center}h1{color:#65a7ff}.key{margin:16px 0;padding:12px;background:#0e1422;border:1px dashed #3a4a6b;border-radius:10px;color:#7ef0a8;font-weight:bold;display:none}button{width:100%;padding:14px;border:0;border-radius:9px;background:#2478ee;color:#fff;font-size:16px;font-weight:bold}</style>
 </head>
 <body>
-  <div class="card">
-    <h1>VDPlay</h1>
-    <p>Bấm nút bên dưới để lấy Key miễn phí. Key có hiệu lực 24h.</p>
-    
-    <div id="key" class="key-box">VDPLAY-XXXX-XXXX</div>
-    
-    <button id="btn" onclick="getKey()">GET KEY</button>
-    
-    <div class="footer">Adimn8383737 • VD Play get keyyy</div>
-  </div>
-
+<div class="card"><h1>VDPlay</h1><p id="msg">Vượt link để lấy Key miễn phí 24h</p><div id="keyBox" class="key"></div><button id="btn">VƯỢT LINK ĐỂ LẤY KEY</button></div>
 <script>
-function getKey() {
-  const btn = document.getElementById('btn');
-  const keyBox = document.getElementById('key');
-  
-  btn.textContent = 'Đang lấy key...';
-  btn.disabled = true;
-
-  setTimeout(() => {
-    const random = Math.random().toString(36).substring(2, 8).toUpperCase();
-    const key = `VDPLAY-${random}-FREE`;
-    
-    keyBox.textContent = key;
-    keyBox.style.display = 'block';
-    btn.textContent = 'ĐÃ COPY KEY!';
-    
-    navigator.clipboard.writeText(key);
-    alert('Đã copy key: ' + key);
-    
-    setTimeout(() => {
-      btn.textContent = 'GET KEY';
-      btn.disabled = false;
-    }, 2000);
-  }, 1200);
+const LINK4M_URL = "https://link4m.co/st?api=66a3ecb17a938924c06d1bda&url=https://leq255551-lgtm.github.io/Adimn8383737/?pass=yes";
+const keyBox=document.getElementById('keyBox');const btn=document.getElementById('btn');const msg=document.getElementById('msg');
+const urlParams=new URLSearchParams(window.location.search);
+if(urlParams.get('pass')==='yes'){
+  const key="VDPLAY-"+Math.random().toString(36).substring(2,8).toUpperCase()+"-VIP";
+  keyBox.textContent=key;keyBox.style.display='block';
+  msg.textContent="Chúc mừng! Đây là Key của bạn:";btn.textContent="COPY KEY";
+  btn.onclick=()=>{navigator.clipboard.writeText(key);alert("Đã copy: "+key);};
+}else{
+  btn.onclick=()=>{window.location.href=LINK4M_URL;};
 }
 </script>
 </body>
